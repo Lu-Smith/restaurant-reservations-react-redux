@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import { GiVikingHelmet } from "react-icons/gi";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./App.css";
 import ReservationCard from "./app/components/ReservationCard";
 import { RootState } from "./app/store";
+import { addReservation } from "./features/reservationSlice";
 
 
 function App() {
 
+  const [reservationNameInput, setReservationNameInput] = useState("");
+
 const reservations = useSelector((state: RootState) => state.reservations.value);
+
+const dispatch = useDispatch();
+
+const handleAddReservation = () => {
+   if(!reservationNameInput) return;
+   dispatch(addReservation(reservationNameInput));
+   setReservationNameInput("");
+}
 
   return (
     <div className="App">
@@ -25,8 +36,8 @@ const reservations = useSelector((state: RootState) => state.reservations.value)
             </div>
           </div>
           <div className="reservation-input-container">
-            <input />
-            <button>Add</button>
+              <input value={reservationNameInput} onChange={(e) => setReservationNameInput(e.target.value)}/>
+              <button onClick={handleAddReservation}>Add</button>
           </div>
         </div>
         <div className="customer-food-container">
