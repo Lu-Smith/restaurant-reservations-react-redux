@@ -1,8 +1,12 @@
 import React from 'react'
 
-function ReservationCard() {
+interface ReservationCardTypes {
+    name: string
+}
+
+function ReservationCard( {name}: ReservationCardTypes) {
   return (
-    <div className="reservation-card-container">Laith Harb</div>
+    <div className="reservation-card-container">{name}</div>
   )
 }
 

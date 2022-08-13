@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { GiVikingHelmet } from "react-icons/gi";
+import { useSelector } from "react-redux";
 import "./App.css";
+import ReservationCard from "./app/components/ReservationCard";
+import { RootState } from "./app/store";
 
 
 function App() {
+
+const reservations = useSelector((state: RootState) => state.reservations.value);
+
   return (
     <div className="App">
       
@@ -13,7 +19,9 @@ function App() {
           <div>
             <h5 className="reservation-header">Reservations</h5>
             <div className="reservation-cards-container">
-              <div className="reservation-card-container">Laith Harb</div>
+              {reservations.map(name => {
+                return <ReservationCard name={name} />
+              })}
             </div>
           </div>
           <div className="reservation-input-container">

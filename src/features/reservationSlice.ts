@@ -18,6 +18,6 @@ export const reservationSlice = createSlice({
 },
 });
 
-export const { addReservation } = reservationSlice.actions
+export const { addReservation } = reservationSlice.actions;
 
 export default reservationSlice.reducer;
