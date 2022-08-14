@@ -34,7 +34,7 @@ const handleAddReservation = () => {
             <h5 className="reservation-header">Reservations</h5>
             <div className="reservation-cards-container">
               {reservations.map((name, index) => {
-                return <ReservationCard name={name} index={index} />
+                return <ReservationCard name={name} index={index} key={index}/>
               })}
             </div>
           </div>
@@ -45,7 +45,7 @@ const handleAddReservation = () => {
         </div>
         <div className="customer-food-container">
             {customers.map(customer => {
-              return <CustomerCard id={customer.id} name={customer.name} food={customer.food}/>
+              return <CustomerCard key={customer.id} id={customer.id} name={customer.name} food={customer.food}/>
             })}
         </div>
       </div>
