@@ -118,6 +118,8 @@ h1 {
   width: 100%;
   margin-top: 1rem;
   justify-content: space-between;
+  color: red;
+  font-style: italic;
 }
 
 @media  screen and (max-width: 1000px) {
