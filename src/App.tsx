@@ -45,7 +45,7 @@ const handleAddReservation = () => {
         </div>
         <div className="customer-food-container">
             {customers.map(customer => {
-              return <CustomerCard />
+              return <CustomerCard id={customer.id} name={customer.name} food={customer.food}/>
             })}
         </div>
       </div>
